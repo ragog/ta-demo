@@ -34,6 +34,6 @@ jobs:
         env: # Or as an environment variable
           super_secret: ${{ secrets.TF_VAR_CHECKLY_API_KEY }}
         run: |
-          echo ${{super_secret}}
+          echo "$super_secret"
           terraform plan
           terraform apply -auto-approve
