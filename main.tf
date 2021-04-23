@@ -52,24 +52,3 @@ resource "checkly_check" "browser-check" {
   group_id = checkly_check_group.key-website-flows.id
 
 }
-
-resource "checkly_check" "browser-check1" {
-  for_each = fileset("${path.module}/monitoring/scripts", "*")
-
-  name                      = "brc1"
-  type                      = "BROWSER"
-  activated                 = true
-  should_fail               = false
-  frequency                 = 1
-  double_check              = true
-  ssl_check                 = false
-  use_global_alert_settings = true
-  locations = [
-    "us-west-1",
-    "eu-central-1"
-  ]
-
-  script = file("${path.module}/monitoring/scripts/${each.key}")
-  group_id = checkly_check_group.key-website-flows.id
-
-}
