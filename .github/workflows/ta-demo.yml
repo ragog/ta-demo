@@ -22,6 +22,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+        env: # Or as an environment variable
+        super_secret: ${{secrets.TF_VAR_CHECKLY_API_KEY}}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
@@ -32,6 +34,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo ${{secrets.TF_VAR_CHECKLY_API_KEY}}
+          echo ${{super_secret}}
           terraform plan
           terraform apply -auto-approve
