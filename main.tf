@@ -1,4 +1,4 @@
-variable "checkly_api_key" {}
+variable "CHECKLY_API_KEY" {}
 
 terraform {
   required_providers {
@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "checkly" {
-  api_key = var.checkly_api_key
+  api_key = var.CHECKLY_API_KEY
 }
 
 resource "checkly_check_group" "key-shop-flows" {
