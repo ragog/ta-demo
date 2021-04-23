@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
         env: # Or as an environment variable
-        super_secret: ${{secrets.TF_VAR_CHECKLY_API_KEY}}
+          super_secret: ${{ secrets.TF_VAR_CHECKLY_API_KEY }}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
