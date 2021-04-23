@@ -34,6 +34,6 @@ jobs:
         env:
           TF_VAR_checkly_api_key: ${{ secrets.TF_VAR_CHECKLY_API_KEY }}
         run: |
-          echo $super_secret
+          terraform init
           terraform plan
           terraform apply -auto-approve
