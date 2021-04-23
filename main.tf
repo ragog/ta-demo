@@ -33,7 +33,7 @@ resource "checkly_check_group" "key-shop-flows" {
 }
 
 resource "checkly_check" "browser-check" {
-  for_each = fileset("${path.module}/scripts", "*")
+  for_each = fileset("${path.module}/monitoring/scripts", "*")
 
   name                      = each.key
   type                      = "BROWSER"
@@ -48,7 +48,7 @@ resource "checkly_check" "browser-check" {
     "eu-central-1"
   ]
 
-  script = file("${path.module}/scripts/${each.key}")
+  script = file("${path.module}/monitoring/scripts/${each.key}")
   group_id = checkly_check_group.key-shop-flows.id
 
 }
